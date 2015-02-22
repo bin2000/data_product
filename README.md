@@ -22,7 +22,6 @@ Make sure you have these libraries installed.
 ```
 install.packages('shiny')
 install.packages('lattice')
-install.packages('googleVis')
 ```
 
 Then run

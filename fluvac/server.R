@@ -1,6 +1,5 @@
 library(shiny)
 library(lattice)
-library(googleVis)
 
 dataset1 <- read.csv("data/6mon_4_states.csv", header = TRUE)
 names(dataset1) <- c("Group", "Region", "Area", "Season", "Percent", "95_CI")
@@ -31,25 +30,6 @@ shinyServer(function(input, output) {
              par.settings=list(superpose.symbol=list(pch=c(1, 3, 16),
                                                      fill="white")))
     print(g)      
-  })
-  
-  output$gvisStateMap <- renderGvis({
-    datasetInput <- reactive({
-      switch(input$agegroup,
-             "6 month to 4" = dataset1,
-             "5 to 12" = dataset2,
-             "13 to 17" = dataset3)
-    })    
-    
-    dataSelected <- subset(datasetInput(), Region==input$region)
-    dataSelected$Area <- factor(dataSelected$Area)
-    
-    gvisGeoChart(dataSelected,
-                locationvar="Area", colorvar="Percent",
-                options=list(region="US", displayMode="regions",
-                                resolution="provinces",
-                                width=500, height=400,
-                                colorAxis="{colors:['#FFFFFF', '#0000FF']}"))
   })
     
 })

@@ -35,7 +35,7 @@ shinyUI(
     ),
     tabPanel("Help",
              mainPanel(
-               "Top chart shows State Flu Vaccination Trends. Lower Map shows the states in the HSS Region. Use Region drop down box to select HHS Region.\nUse Age Group drop down box to select Age Group.\nSource of Data is CDC.\nClick Chart on top bar to return.\n"
+               "Top chart shows State Flu Vaccination Trends. Use Region drop down box to select HHS Region.\nUse Age Group drop down box to select Age Group.\nSource of Data is CDC.\nClick Chart on top bar to return.\n"
              )
     )        
 ))
