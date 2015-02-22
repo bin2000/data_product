@@ -1,4 +1,4 @@
-# State Flu Vaccacin Trends
+# State Flu Vaccination Trends 2010 to 2013
 
 This is a shiny application for class project in Coursera Data Science Course Developing Data Product.
 It shows the state flu vaccination rate in the United States from 2010 to 2013 season.
