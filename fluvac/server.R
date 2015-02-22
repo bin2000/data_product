@@ -1,5 +1,6 @@
 library(shiny)
 library(lattice)
+library(plyr)
 
 dataset1 <- read.csv("data/6mon_4_states.csv", header = TRUE)
 names(dataset1) <- c("Group", "Region", "Area", "Season", "Percent", "95_CI")
@@ -31,5 +32,22 @@ shinyServer(function(input, output) {
                                                      fill="white")))
     print(g)      
   }) 
+  
+  output$stateAvg <- renderDataTable({
+    datasetInput <- reactive({
+      switch(input$agegroup,
+             "6 month to 4" = dataset1,
+             "5 to 12" = dataset2,
+             "13 to 17" = dataset3)
+    })  
+    dataSelected <- subset(datasetInput(), Region==input$region)
+    dataSelected$Area <- factor(dataSelected$Area)
+    
+    out <- subset(dataSelected, , select=c(Area,Percent))
+    avgs <- aggregate(out$Percent, by=list(out$Area), FUN=mean)
+    colnames(avgs) <- c("State", "Average Flu Vac Rate")
+    avgs
+
+  }, options = list(lengthMenu = c(10, 50), pageLength = 10))  
     
 })

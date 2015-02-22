@@ -28,13 +28,14 @@ shinyUI(
 
         # Show a plot of the generated distribution
         mainPanel(
-          plotOutput("distPlot")
+          plotOutput("distPlot"),
+          dataTableOutput("stateAvg")
         )
       )
     ),
     tabPanel("Help",
              mainPanel(
-               "Top chart shows State Flu Vaccination Trends. Use Region drop down box to select HHS Region.\nUse Age Group drop down box to select Age Group.\nSource of Data is CDC.\nClick Chart on top bar to return.\n"
+               "Top chart shows State Flu Vaccination Trends. Lower table gives the average flu vaccination rate for states in the Reigion. Use Region drop down box to select HHS Region.\nUse Age Group drop down box to select Age Group.\nSource of Data is CDC.\nClick Chart on top bar to return.\n"
              )
     )        
 ))
