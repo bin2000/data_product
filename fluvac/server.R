@@ -34,30 +34,6 @@ shinyServer(function(input, output) {
              par.settings=list(superpose.symbol=list(pch=c(1, 3, 16),
                                                      fill="white")))
     print(g)      
-  })
-  
-  output$stateMap <- renderPlot({
-    datasetInput <- reactive({
-      switch(input$agegroup,
-             "6 month to 4" = dataset1,
-             "5 to 12" = dataset2,
-             "13 to 17" = dataset3)
-    })    
-    
-    dataSelected <- datasetInput()
-    dataSelected[dataSelected$Region!=input$region,]$Percent <- 0
-    
-    dataSelected$region <- tolower(dataSelected$Area)
-    stateData <- merge(all_states, dataSelected, by="region")
-
-    p <- ggplot() + 
-      geom_polygon(data=stateData, aes(x=long, y=lat, group = group, fill=Percent), colour="white") + 
-      scale_fill_continuous(low = "thistle2", high = "blue", guide="colorbar")
-    
-    P1 <- p + 
-        theme_bw() + labs(fill = "Flu Vac Rate", title = "Flu Vaccination Rate by State", x="", y="")
-    print(P1 + scale_y_continuous(breaks=c()) + scale_x_continuous(breaks=c()) + theme(panel.border = element_blank()))      
-
-  })  
+  }) 
     
 })

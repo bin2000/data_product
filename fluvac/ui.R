@@ -30,8 +30,7 @@ shinyUI(
 
         # Show a plot of the generated distribution
         mainPanel(
-          plotOutput("distPlot"),
-          plotOutput("stateMap")
+          plotOutput("distPlot")
         )
       )
     ),
