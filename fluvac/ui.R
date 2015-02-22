@@ -1,5 +1,7 @@
 library(shiny)
 library(lattice)
+library(ggplot2)
+library(maps)
 
 # Define UI for application that draws a histogram
 shinyUI(
@@ -29,7 +31,7 @@ shinyUI(
         # Show a plot of the generated distribution
         mainPanel(
           plotOutput("distPlot"),
-          htmlOutput('gvisStateMap')
+          plotOutput("stateMap")
         )
       )
     ),
