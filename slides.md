@@ -20,11 +20,11 @@ Sample Data and Chart Options
 
 
 ```
-##         Region        Area  Season Percent
-## 1 HHS Region 1 Connecticut 2010-11    83.9
-## 2 HHS Region 1 Connecticut 2011-12    77.9
-## 3 HHS Region 1 Connecticut 2012-13    84.1
-## 4 HHS Region 1 Connecticut 2013-14    88.0
+        Region        Area  Season Percent
+1 HHS Region 1 Connecticut 2010-11    83.9
+2 HHS Region 1 Connecticut 2011-12    77.9
+3 HHS Region 1 Connecticut 2012-13    84.1
+4 HHS Region 1 Connecticut 2013-14    88.0
 ```
 
 * Chart Options: Region, Age Group
@@ -32,7 +32,7 @@ Sample Data and Chart Options
 Chart for Region 1, 6 months to 4
 ========================================================
 
-![plot of chunk unnamed-chunk-2](assets/fig/unnamed-chunk-2-1.png) 
+![plot of chunk unnamed-chunk-2](slides-figure/unnamed-chunk-2-1.png) 
 
 Observations from using App
 ======================================================== 

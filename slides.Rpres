@@ -18,13 +18,12 @@ Sample Data and Chart Options
 
 - Data for Connecticut, 6 months to 4 data
 
-
-```
-##         Region        Area  Season Percent
-## 1 HHS Region 1 Connecticut 2010-11    83.9
-## 2 HHS Region 1 Connecticut 2011-12    77.9
-## 3 HHS Region 1 Connecticut 2012-13    84.1
-## 4 HHS Region 1 Connecticut 2013-14    88.0
+```{r echo=FALSE}
+dataset1 <- read.csv("fluvac/data/6mon_4_states.csv", header = TRUE)
+names(dataset1) <- c("Group", "Region", "Area", "Season", "Percent", "95_CI")
+dataSelected <- subset(dataset1, Area=="Connecticut", 
+                       select=c("Region", "Area", "Season", "Percent"))
+dataSelected
 ```
 
 * Chart Options: Region, Age Group
@@ -32,7 +31,25 @@ Sample Data and Chart Options
 Chart for Region 1, 6 months to 4
 ========================================================
 
-![plot of chunk unnamed-chunk-2](assets/fig/unnamed-chunk-2-1.png) 
+```{r, echo=FALSE}
+library(lattice)
+dataset1 <- read.csv("fluvac/data/6mon_4_states.csv", header = TRUE)
+names(dataset1) <- c("Group", "Region", "Area", "Season", "Percent", "95_CI")
+dataSelected <- subset(dataset1, Region=="HHS Region 1")
+
+dataSelected$Area <- factor(dataSelected$Area)
+    
+trellis.par.set(list(layout.widths=list(left.padding=0, right.padding=0, ylab.axis.padding=0, axis.right=0, key.ylab.padding=0)))    
+g <-  xyplot(Percent ~ Season, data=dataSelected,
+             group=Area, type="b", 
+             ylim = c(0, 100),
+             drop.unused.levels=TRUE,
+             auto.key=list(space="right"),
+             par.settings=list(superpose.symbol=list(pch=c(1, 3, 16),
+                                                     fill="white")))
+print(g)  
+
+```
 
 Observations from using App
 ======================================================== 
