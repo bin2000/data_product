@@ -1,7 +1,5 @@
 library(shiny)
 library(lattice)
-library(ggplot2)
-library(maps)
 
 dataset1 <- read.csv("data/6mon_4_states.csv", header = TRUE)
 names(dataset1) <- c("Group", "Region", "Area", "Season", "Percent", "95_CI")
@@ -9,8 +7,6 @@ dataset2 <- read.csv("data/5_12_states.csv", header = TRUE)
 names(dataset2) <- c("Group", "Region", "Area", "Season", "Percent", "95_CI")
 dataset3 <- read.csv("data/13_17_states.csv", header = TRUE)
 names(dataset3) <- c("Group", "Region", "Area", "Season", "Percent", "95_CI")
-
-all_states <- map_data("state")
 
 shinyServer(function(input, output) {
 

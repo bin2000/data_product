@@ -1,7 +1,5 @@
 library(shiny)
 library(lattice)
-library(ggplot2)
-library(maps)
 
 # Define UI for application that draws a histogram
 shinyUI(
