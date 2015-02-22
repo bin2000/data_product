@@ -17,7 +17,7 @@ Deployed the applicaiton is at http://bin2000.shinyapps.io/fluvac
 
 ## Running locally
 
-make you have these libraries installed. 
+Make sure you have these libraries installed. 
 
 ```
 install.packages('shiny')
@@ -25,7 +25,7 @@ install.packages('lattice')
 install.packages('googleVis')
 ```
 
-then run
+Then run
 
 ```
 library(shiny)
